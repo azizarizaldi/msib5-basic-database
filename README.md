@@ -58,3 +58,23 @@ FROM rents
 JOIN users ON rents.user_id = users.id
 JOIN rooms ON rents.room_id = rooms.id;
 ```
+### Pembuatan Function
+Function ini berfungsi untuk menghitungan jumlah ruangan terbanyak, dan berikan keteragan jika ruangan disewa lebih dari
+4, maka keterangan 'PALING LAKU' jika tidak 'KURANG LAKU'
+```bash
+DELIMITER $$
+
+DROP FUNCTION IF EXISTS `room_popularity`$$
+
+CREATE FUNCTION `room_popularity`(params INT) RETURNS VARCHAR(50)
+BEGIN        
+    IF params > 4 THEN
+        RETURN 'PALING LAKU';
+    ELSE
+        RETURN 'KURANG LAKU';
+    END IF;
+END$$
+
+DELIMITER ;
+```
+
