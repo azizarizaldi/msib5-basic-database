@@ -48,3 +48,13 @@ END;
 
 DELIMITER ;
 ```
+
+### Pembuatan View
+**Query dibawah ini bertujuan untuk membuat view data pengurangan data (Menampilkan data sewa, tampilkan nama penyewa, nama ruangan dan durasi sewa)**
+```bash
+CREATE OR REPLACE VIEW rental_view AS
+SELECT users.name AS nama_penyewa, rooms.name AS nama_ruangan, rents.duration AS durasi_sewa
+FROM rents
+JOIN users ON rents.user_id = users.id
+JOIN rooms ON rents.room_id = rooms.id;
+```
