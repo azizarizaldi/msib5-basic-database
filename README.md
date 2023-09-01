@@ -50,7 +50,7 @@ DELIMITER ;
 ```
 
 ### Pembuatan View
-**Query dibawah ini bertujuan untuk membuat view data pengurangan data (Menampilkan data sewa, tampilkan nama penyewa, nama ruangan dan durasi sewa)**
+**Query dibawah ini bertujuan untuk membuat view data (Menampilkan data sewa, tampilkan nama penyewa, nama ruangan dan durasi sewa)**
 ```bash
 CREATE OR REPLACE VIEW rental_view AS
 SELECT users.name AS nama_penyewa, rooms.name AS nama_ruangan, rents.duration AS durasi_sewa
