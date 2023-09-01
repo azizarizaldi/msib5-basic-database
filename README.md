@@ -78,3 +78,17 @@ END$$
 DELIMITER ;
 ```
 
+### Pembuatan Stored Procedure
+```bash
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `rental_report`$$
+
+CREATE PROCEDURE `rental_report`()
+BEGIN
+    SELECT *, room_popularity(rooms.`rented_count`) AS room_status
+    FROM rooms;
+END$$
+
+DELIMITER ;
+```
